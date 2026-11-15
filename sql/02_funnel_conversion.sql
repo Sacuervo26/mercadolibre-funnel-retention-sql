@@ -5,43 +5,43 @@ WITH first_visit AS (
     SELECT DISTINCT user_id
     FROM mercadolibre_funnel
     WHERE event_name = 'first_visit'
-      AND event_date BETWEEN '2025-01-01' AND '2025-08-31'
+      AND event_date >= '2025-01-01' AND event_date < '2025-09-01'
 ),
 select_item AS (
     SELECT DISTINCT user_id
     FROM mercadolibre_funnel
     WHERE event_name IN ('select_item', 'select_promotion')
-      AND event_date BETWEEN '2025-01-01' AND '2025-08-31'
+      AND event_date >= '2025-01-01' AND event_date < '2025-09-01'
 ),
 add_to_cart AS (
     SELECT DISTINCT user_id
     FROM mercadolibre_funnel
     WHERE event_name = 'add_to_cart'
-      AND event_date BETWEEN '2025-01-01' AND '2025-08-31'
+      AND event_date >= '2025-01-01' AND event_date < '2025-09-01'
 ),
 begin_checkout AS (
     SELECT DISTINCT user_id
     FROM mercadolibre_funnel
     WHERE event_name = 'begin_checkout'
-      AND event_date BETWEEN '2025-01-01' AND '2025-08-31'
+      AND event_date >= '2025-01-01' AND event_date < '2025-09-01'
 ),
 add_shipping_info AS (
     SELECT DISTINCT user_id
     FROM mercadolibre_funnel
     WHERE event_name = 'add_shipping_info'
-      AND event_date BETWEEN '2025-01-01' AND '2025-08-31'
+      AND event_date >= '2025-01-01' AND event_date < '2025-09-01'
 ),
 add_payment_info AS (
     SELECT DISTINCT user_id
     FROM mercadolibre_funnel
     WHERE event_name = 'add_payment_info'
-      AND event_date BETWEEN '2025-01-01' AND '2025-08-31'
+      AND event_date >= '2025-01-01' AND event_date < '2025-09-01'
 ),
 purchase AS (
     SELECT DISTINCT user_id
     FROM mercadolibre_funnel
     WHERE event_name = 'purchase'
-      AND event_date BETWEEN '2025-01-01' AND '2025-08-31'
+      AND event_date >= '2025-01-01' AND event_date < '2025-09-01'
 ),
 funnel_counts AS (
     SELECT
