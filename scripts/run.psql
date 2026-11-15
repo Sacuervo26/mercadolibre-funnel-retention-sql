@@ -1,0 +1,12 @@
+\set ON_ERROR_STOP on
+-- Run from repository root against a dedicated, disposable database.
+BEGIN;
+\i sql/00_create_tables_postgresql.sql
+\copy mercadolibre_funnel FROM 'data/raw/mercadolibre_funnel.csv' WITH (FORMAT csv, HEADER true, ENCODING 'UTF8')
+\copy mercadolibre_retention FROM 'data/raw/mercadolibre_retention.csv' WITH (FORMAT csv, HEADER true, ENCODING 'UTF8')
+\i sql/01_exploracion.sql
+\i sql/02_funnel_conversion.sql
+\i sql/03_funnel_por_pais.sql
+\i sql/04_retencion_por_pais.sql
+\i sql/05_retencion_por_cohorte.sql
+COMMIT;

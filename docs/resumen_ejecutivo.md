@@ -1,9 +1,15 @@
 # Resumen ejecutivo
 
-El análisis evalúa el embudo de conversión y la retención de usuarios en un escenario tipo MercadoLibre.
+## Pregunta
+¿En qué etapas cae la conversión y cómo cambia la actividad posterior al registro?
 
-La principal caída del embudo ocurre entre la selección del producto y la acción de agregar al carrito. Esto indica que los usuarios muestran interés, pero encuentran fricciones antes de avanzar hacia la compra.
+## Evidencia de la simulación
+El conjunto de eventos contiene 12.000 usuarios con primera visita dentro de la ventana enero–agosto de 2025. De ellos, 9.725 tienen selección, 1.449 llegan a carrito con las etapas previas y 507 presentan todas las etapas hasta compra. La reducción más grande entre etapas es selección → carrito: 8.276 usuarios.
 
-En retención, la actividad inicial en D7 es alta, pero cae con fuerza hacia D28. Esto sugiere que el negocio debe reforzar acciones de retención durante las primeras semanas después del registro.
+La retención se calcula en el día exacto D7, D14, D21 o D28 sobre quienes tienen una observación disponible. Se publican también los denominadores por país y cohorte. No confundir estos resultados con usuarios activos en cualquier día posterior al umbral.
 
-Se recomienda optimizar la experiencia de producto, revisar costos y promociones, implementar recordatorios de carrito y diseñar campañas específicas por país.
+## Interpretación y propuesta
+La caída identifica una etapa a investigar, pero no demuestra por qué ocurre. En un caso real propondría revisar instrumentación, disponibilidad de producto, costos y usabilidad; después contrastar hipótesis con pruebas controladas y métricas de conversión, sin atribuir mejoras antes de medirlas.
+
+## Límites
+Datos ficticios, sin vinculación con MercadoLibre. El funnel exige presencia de etapas, no orden temporal ni una misma sesión. Los dos conjuntos no se unen. Las tasas de retención dependen de cobertura y madurez. No se midieron impacto económico, incremento de ventas ni ahorros reales.

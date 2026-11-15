@@ -1,0 +1,29 @@
+name: Validate SQL portfolio
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_USER: portfolio
+          POSTGRES_PASSWORD: local_test_only
+          POSTGRES_DB: portfolio_test
+        ports: ['5432:5432']
+        options: >-
+          --health-cmd "pg_isready -U portfolio -d portfolio_test"
+          --health-interval 10s --health-timeout 5s --health-retries 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Portable SQL regression tests
+        run: python -m unittest discover -s tests -v
+      - name: Native PostgreSQL import and query smoke test
+        env:
+          PGPASSWORD: local_test_only
+        run: psql -h localhost -U portfolio -d portfolio_test -f scripts/run.psql
